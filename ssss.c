@@ -37,6 +37,7 @@
  *  
  */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
@@ -47,6 +48,8 @@
 #include <assert.h>
 #include <termios.h>
 #include <sys/mman.h>
+#include <sys/types.h>
+#include <getopt.h>
 
 #include <gmp.h>
 
