@@ -1,0 +1,7 @@
+.*.d
+.*.swp
+*.o
+ssss-combine
+ssss-split
+*.1
+*.html
