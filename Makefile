@@ -13,6 +13,7 @@ CFLAGS = \
 	-Wp,-MMD,$(dir $@).$(notdir $@).d \
 	-Wp,-MT,$@ \
 	-D_GNU_SOURCE \
+	-DNOMLOCK \
 
 ifdef 0
 MBEDTLS_DIR = ../mbedtls-2.3.0
