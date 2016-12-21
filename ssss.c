@@ -167,7 +167,7 @@ void field_print(FILE* stream, const mpz_t x, int hexmode)
   if (hexmode) {
     for(i = degree / 4 - mpz_sizeinbase(x, 16); i; i--)
       fprintf(stream, "0");
-    mpz_out_str(stream, 16, x);
+    mpz_out_str(stream, -16, x); // use upper case
     fprintf(stream, "\n");
   }
   else {
