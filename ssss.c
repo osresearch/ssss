@@ -84,6 +84,7 @@ int opt_security = 0;
 int opt_threshold = -1;
 int opt_number = -1;
 char *opt_token = NULL;
+int is_tty = 0;
 
 unsigned int degree;
 mpz_t poly;
@@ -414,10 +415,12 @@ void split(void)
     else 
       fprintf(stderr, "at most %d ASCII characters: ", deg / 8);
   }
-  tcsetattr(0, TCSANOW, &echo_off);
+  if(isatty(fileno(stdin)))
+    tcsetattr(0, TCSANOW, &echo_off);
   if (! fgets(buf, sizeof(buf), stdin))
     fatal("I/O error while reading secret");
-  tcsetattr(0, TCSANOW, &echo_orig);
+  if(isatty(fileno(stdin)))
+    tcsetattr(0, TCSANOW, &echo_orig);
   buf[strcspn(buf, "\r\n")] = '\0';
 
   if (! opt_security) {
